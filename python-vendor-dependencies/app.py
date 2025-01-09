@@ -1,8 +1,8 @@
 import sys
 import os
 
-# Add the vendored library to the Python path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "vendor/requests"))
+# Add the vendored `requests` module to the Python path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "vendor"))
 
 import requests
 
