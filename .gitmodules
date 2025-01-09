@@ -1,0 +1,3 @@
+[submodule "python-vendor-dependencies/vendor/requests"]
+	path = python-vendor-dependencies/vendor/requests
+	url = https://github.com/psf/requests.git
