@@ -1,24 +1,15 @@
-import http.client
+import aiohttp
+import asyncio
 
-# Specify the host and path
-host = "google.com"
-path = "/"
+async def fetch():
+    url = "http://google.com"
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            if response.status == 200:
+                content = await response.text()
+                print(content)
+            else:
+                print(f"Failed to fetch the page. Status code: {response.status}")
 
-# Create a connection to the host
-connection = http.client.HTTPConnection(host)
-
-# Send a GET request
-connection.request("GET", path)
-
-# Get the response
-response = connection.getresponse()
-
-# Read and print the content
-if response.status == 200:
-    content = response.read()
-    print(content.decode('utf-8'))
-else:
-    print(f"Failed to fetch the page. Status code: {response.status}")
-
-# Close the connection
-connection.close()
+# Run the async function
+asyncio.run(fetch())
