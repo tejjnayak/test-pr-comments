@@ -1,15 +1,15 @@
 import aiohttp
 import asyncio
 
-async def fetch():
-    url = "http://google.com"
+async def fetch_status(url):
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
-            if response.status == 200:
-                content = await response.text()
-                print(content)
-            else:
-                print(f"Failed to fetch the page. Status code: {response.status}")
+            print(f"URL: {url} -> Status Code: {response.status}")
 
-# Run the async function
-asyncio.run(fetch())
+async def main():
+    url = "https://example.com"  # Replace with your desired URL
+    await fetch_status(url)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
